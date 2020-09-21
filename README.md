@@ -1,4 +1,4 @@
-## Components
+# Components
 
 - VPC
     - Public, Private, DB Subnets
