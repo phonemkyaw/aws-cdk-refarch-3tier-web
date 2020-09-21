@@ -3,7 +3,7 @@ from aws_cdk import aws_rds as _rds
 from aws_cdk import aws_ec2 as _ec2
 
 
-class Ab3RdsStack(core.Stack):
+class RdsStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, vpc, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)

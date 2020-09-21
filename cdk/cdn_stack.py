@@ -2,7 +2,7 @@ from aws_cdk import core
 from aws_cdk import aws_s3 as _s3
 from aws_cdk import aws_cloudfront as _cf
 
-class Ab3CdnStack(core.Stack):
+class CdnStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, vpc, alb, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)

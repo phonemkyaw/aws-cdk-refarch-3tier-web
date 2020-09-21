@@ -5,7 +5,7 @@ from aws_cdk import aws_ecs as _ecs
 from aws_cdk import aws_ec2 as _ec2
 from aws_cdk import aws_elasticloadbalancingv2 as _elbv2
 
-class Ab3FargateStack(core.Stack):
+class FargateStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, vpc, redis,**kwargs) -> None:
         super().__init__(scope, id, **kwargs)

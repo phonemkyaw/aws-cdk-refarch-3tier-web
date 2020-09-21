@@ -2,20 +2,20 @@
 
 from aws_cdk import core
 
-from ab3.ab3_vpc_stack import Ab3VpcStack
-from ab3.ab3_fargate_stack import Ab3FargateStack
-from ab3.ab3_cdn_stack import Ab3CdnStack
-from ab3.ab3_rds_stack import Ab3RdsStack
-from ab3.ab3_ec_stack import Ab3EcStack
+from cdk.vpc_stack import VpcStack
+from cdk.fargate_stack import FargateStack
+from cdk.cdn_stack import CdnStack
+from cdk.rds_stack import RdsStack
+from cdk.ec_stack import EcStack
 
 app = core.App()
 
 
-vpc_stack = Ab3VpcStack(app, "ab3-vpc")
-ec_stack = Ab3EcStack(app, "ab3-ec", vpc=vpc_stack.vpc)
-fargate_stack = Ab3FargateStack(app, "ab3-fargate", vpc=vpc_stack.vpc, redis=ec_stack.ec)
-cdn_stack = Ab3CdnStack(app, "ab3-cdn", vpc=vpc_stack.vpc, alb=fargate_stack.lb)
-rds_stack = Ab3RdsStack(app, "ab3-rds", vpc=vpc_stack.vpc)
+vpc_stack = VpcStack(app, "cdk-vpc")
+ec_stack = EcStack(app, "cdk-ec", vpc=vpc_stack.vpc)
+fargate_stack = FargateStack(app, "cdk-fargate", vpc=vpc_stack.vpc, redis=ec_stack.ec)
+cdn_stack = CdnStack(app, "cdk-cdn", vpc=vpc_stack.vpc, alb=fargate_stack.lb)
+rds_stack = RdsStack(app, "cdk-rds", vpc=vpc_stack.vpc)
 
 
 app.synth()
